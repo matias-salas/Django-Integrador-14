@@ -3,4 +3,28 @@
 {% block content %}
 
 
+
+<!-- create a flex div container -->
+<div class="container ">
+    <h1 class="mb-3"> Productos a comprar</h1>
+    <div class="d-flex justify-content-center align-items-center  flex-row mb-3 flex-wrap gap-3">
+        {% for producto in productos %}
+        
+        <div class="card" style="width: 18rem;">
+        <img src="{{ producto.imagen }}" class="card-img-top" alt="No file">
+        <div class="card-body">
+            <h5 class="card-title">{{ producto.nombre }}</h5>
+            <p class="card-text">{{ producto.descripcion }}</p>
+            <a href="" class="btn btn-danger">Agregar al carrito</a>
+        </div>
+        </div>
+    
+        {% endfor %}
+    
+    </div>
+
+</div>
+
+
+
 {% endblock %}

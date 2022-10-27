@@ -18,12 +18,15 @@ class Categoria(models.Model):
     def __str__(self):
         return self.nombre
 
+def media_directory_path(instance,filename):
+    return 'productos/{0}'.format(filename)
+        
 class Producto(models.Model):
-    proveedor = models.ForeignKey(Proveedor, on_delete=models.CASCADE)
-    categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE)
+    proveedor = models.ForeignKey(Proveedor, on_delete=models.CASCADE, null=True)
+    categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE, null=True)
     nombre = models.CharField(max_length=50)
-    precio = models.CharField(max_length=50)
-    imagen = models.ImageField(upload_to='productos', null=True, blank=True)
+    precio = models.FloatField()
+    imagen = models.ImageField(upload_to=media_directory_path, null=True, blank=True)
     stock = models.IntegerField()
 
     def __str__(self):

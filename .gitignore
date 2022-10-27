@@ -1,0 +1,10 @@
+./env
+env
+/env
+*env
+*/env
+env
+
+db.sqlite3
+core/__pycache__/
+proveedores/__pycache__/

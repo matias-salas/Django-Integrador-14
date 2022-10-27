@@ -1,6 +1,19 @@
 {% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
 
 {% block content %}
+    <div class="form__container">
+        <form method="post" action="{% url 'proveedores:nuevo-producto' %}">
+            {% csrf_token %}
+            {{form|crispy}}
 
+            <div>
+                <button type="submit" class="btn btn-primary col-12">
+                    Crear producto
+                </button>
+            </div>
+        </form>
+    </div>
 
 {% endblock %}
